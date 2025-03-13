@@ -8,4 +8,10 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Treesitter.
 - Status line from *mini.nvim*.
 - Cyberdream colorscheme.
+- Added formating on save.
+- Added Telescope.
+- Added livegrep custom plugin.
+- Added oil.
+- Added autocompletion.
+
 

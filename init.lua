@@ -1,6 +1,3 @@
-print"FrancoFrancoFrancoFranco, porque digo Franco"
-
-
 require("config.lazy")
 
 -- OPTIONS
@@ -16,14 +13,15 @@ vim.keymap.set("v", "<space>x", ":lua<CR>")
 vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
 vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
 vim.keymap.set('n', 'grr', vim.lsp.buf.references)
+vim.keymap.set("n", '-', ":Oil<CR>")
 
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight text that is copied.",
-    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", {clear = true}),
-    callback = function()
-    	vim.highlight.on_yank()
-    end,
+  desc = "Highlight text that is copied.",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 -- EXPERIMENTS
