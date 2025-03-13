@@ -1,0 +1,11 @@
+### My own config of NVIM
+This is a vanila config of NVIM that Im making for learning porpuses using the TJ videos.
+
+#### What it has.
+- Some usefull mapping, and commands written in the *init.lua* file.
+- Use of *lazy package manager*.
+- LSP for lua, python and go.
+- Treesitter.
+- Status line from *mini.nvim*.
+- Cyberdream colorscheme.
+
