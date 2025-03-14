@@ -1,4 +1,5 @@
 require("config.lazy")
+
 -- OPTIONS
 local set = vim.opt
 set.shiftwidth = 4
