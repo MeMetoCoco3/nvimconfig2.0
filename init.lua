@@ -1,20 +1,43 @@
 require("config.lazy")
-
 -- OPTIONS
 local set = vim.opt
 set.shiftwidth = 4
 set.number = true
+set.relativenumber = true
 set.clipboard = "unnamedplus"
 
--- KEYMAPS
-vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
-vim.keymap.set("n", "<space>x", ":.lua<CR>")
-vim.keymap.set("v", "<space>x", ":lua<CR>")
-vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
-vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
-vim.keymap.set('n', 'grr', vim.lsp.buf.references)
-vim.keymap.set("n", '-', ":Oil<CR>")
 
+-- KEYMAPS
+local map = vim.keymap.set
+map("n", "<space><space>x", "<cmd>source %<CR>")
+map("n", "<space>x", ":.lua<CR>")
+map("v", "<space>x", ":lua<CR>")
+map("n", "-", ":e .<CR>")
+map('n', 'grn', vim.lsp.buf.rename)
+map('n', 'gra', vim.lsp.buf.code_action)
+map('n', 'grr', vim.lsp.buf.references)
+map(
+  "n",
+  "<Leader>rl",
+  [[gg $<CR>i
+    import (
+      rl "github.com/gen2brain/raylib-go/raylib"
+    )
+
+    const (
+      SCREENWIDTH = 600
+      SCREENHEIGHT
+    )
+
+    func main(){
+      rl.InitWindow(SCREENWIDTH, SCREENHEIGHT, "Snake")
+
+      defer rl.CloseWindow()
+      rl.SetTargetFPS(60)
+    }<Esc>
+    ]],
+  { desc = "Insert Raylib on Golang" }
+)
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight text that is copied.",

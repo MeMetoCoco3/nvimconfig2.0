@@ -8,6 +8,7 @@ return {
         "icon",
       },
       keymaps = {
+        ["<BS>"] = "actions.parent",
         ["-"] = "actions.close",
       },
     },
