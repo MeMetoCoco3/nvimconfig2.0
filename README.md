@@ -13,5 +13,5 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Added livegrep custom plugin.
 - Added oil.
 - Added autocompletion.
-
+- Added Dashboard.
 
