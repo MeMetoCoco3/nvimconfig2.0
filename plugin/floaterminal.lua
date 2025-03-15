@@ -1,5 +1,3 @@
-vim.keymap.set("n", "tt", ":Floaterminal<CR>")
-
 local state = {
   floating = {
     buf = -1,

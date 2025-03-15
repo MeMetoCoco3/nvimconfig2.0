@@ -22,9 +22,11 @@ return {
 
       vim.keymap.set("n", "<space>fh", require("telescope.builtin").help_tags)
       vim.keymap.set("n", "<space>fd", require("telescope.builtin").find_files)
+      vim.keymap.set('n', '<space>fk', require("telescope.builtin").keymaps)
       vim.keymap.set("n", "<space>en", function()
         require("telescope.builtin").find_files {
-          cwd = vim.fn.stdpath("config") }
+          cwd = vim.fn.stdpath("config"),
+        }
       end)
       -- Checks every file related to a plugin
       vim.keymap.set("n", "<space>ep", function()

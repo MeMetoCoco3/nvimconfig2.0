@@ -1,3 +1,4 @@
+-- For extra information about which lsp to use for which language check lspconfig-all
 return {
   {
     "neovim/nvim-lspconfig",
@@ -16,9 +17,31 @@ return {
     },
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      require 'lspconfig'.basedpyright.setup { capabilities = capabilities }
-      require 'lspconfig'.lua_ls.setup { capabilities = capabilities }
-      require 'lspconfig'.gopls.setup { capabilities = capabilities }
+
+
+      require 'lspconfig'.fennel_ls.setup{
+        capabilities = capabilities,
+      }
+
+      require 'lspconfig'.basedpyright.setup { 
+        capabilities = capabilities,
+      }
+
+      require 'lspconfig'.lua_ls.setup {
+        capabilities = capabilities,
+       }
+
+      require 'lspconfig'.gopls.setup { 
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            analyses = {
+              composites = false,
+            }
+          }
+        },
+      }
+ 
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

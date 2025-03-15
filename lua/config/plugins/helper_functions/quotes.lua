@@ -9,7 +9,8 @@ local quotes = {
 				"You will eventually use everything you have ever learned.",
 				"It's nice to have a game that sells a milion copies.",
 				"Failure is not the opposite of success; it is part of it.",
-				"It has been said that computers are basically people made out of metal or, conversely, people are computers made out of flesh and blood.\nHowever, once we get close to computers, we see that they are basically machines that follow very specifix and primitive instructions.",
+				"It has been said that computers are basically people made out of metal or, conversely, people are computers made out of flesh and blood.",
+        "However, once we get close to computers, we see that they are basically machines that follow very specifix and primitive instructions.",
 			}
 
 			math.randomseed(os.time())

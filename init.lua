@@ -19,7 +19,7 @@ map('n', 'gra', vim.lsp.buf.code_action)
 map('n', 'grr', vim.lsp.buf.references)
 map(
   "n",
-  "<Leader>rl",
+  "<space>rl",
   [[gg $<CR>i
     import (
       rl "github.com/gen2brain/raylib-go/raylib"
@@ -37,8 +37,11 @@ map(
       rl.SetTargetFPS(60)
     }<Esc>
     ]],
-  { desc = "Insert Raylib on Golang" }
+  { desc = "Insert Raylib on Golang." }
 )
+map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Escape terminal mode." })
+map({ "n", "t" }, "<space>tt", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
+
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight text that is copied.",
