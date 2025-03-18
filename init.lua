@@ -43,6 +43,15 @@ map(
 )
 map("t", "<esc>", "<c-\\><c-n>", { desc = "Escape terminal mode." })
 map({ "n", "t" }, "<space>t", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
+map("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+map("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+
 
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -58,13 +67,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Disable errors from lsp-config being drawn
 vim.diagnostic.config({
   virtual_text = false,
-  signs = false,
-  underline = false,
-  float = {
-    show = true,
-  },
-  update_in_insert = true,
-  severity_sort = true,
 })
 
 -- EXPERIMENTS
