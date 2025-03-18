@@ -39,8 +39,8 @@ map(
     ]],
   { desc = "Insert Raylib on Golang." }
 )
-map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Escape terminal mode." })
-map({ "n", "t" }, "<space>tt", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
+map("t", "<esc>", "<c-\\><c-n>", { desc = "Escape terminal mode." })
+map({ "n", "t" }, "<space>t", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
 
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {

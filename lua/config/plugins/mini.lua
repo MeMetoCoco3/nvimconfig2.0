@@ -1,4 +1,5 @@
 return {
+  --[[
   {
     'echasnovski/mini.nvim',
     config = function()
@@ -6,6 +7,7 @@ return {
       statusline.setup { use_icons = true }
     end
   },
+  --]]
   {
     'echasnovski/mini.icons',
     lazy = false,

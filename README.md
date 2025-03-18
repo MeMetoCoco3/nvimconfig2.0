@@ -7,7 +7,7 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - LSP for lua, python and go.
 - LSP for fennel added.
 - Treesitter.
-- Status line from *mini.nvim*.
+- Status line from *mini.nvim*. UPDATED: Status line from lualine.nvim
 - Cyberdream colorscheme.
 - Added formating on save.
 - Added Telescope.
@@ -15,4 +15,8 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Added oil.
 - Added autocompletion.
 - Added Dashboard.
+- Added Notify for search bar.
+- Errors are shown with lsp-lines.
 
+#### Thinking of
+-  Vim-OrgMode
