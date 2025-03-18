@@ -19,19 +19,19 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 
-      require 'lspconfig'.fennel_ls.setup{
+      require 'lspconfig'.fennel_ls.setup {
         capabilities = capabilities,
       }
 
-      require 'lspconfig'.basedpyright.setup { 
+      require 'lspconfig'.basedpyright.setup {
         capabilities = capabilities,
       }
 
       require 'lspconfig'.lua_ls.setup {
         capabilities = capabilities,
-       }
+      }
 
-      require 'lspconfig'.gopls.setup { 
+      require 'lspconfig'.gopls.setup {
         capabilities = capabilities,
         settings = {
           gopls = {
@@ -41,7 +41,7 @@ return {
           }
         },
       }
- 
+
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

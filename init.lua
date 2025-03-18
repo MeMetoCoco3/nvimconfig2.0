@@ -8,6 +8,8 @@ set.relativenumber = true
 set.clipboard = "unnamedplus"
 
 
+
+
 -- KEYMAPS
 local map = vim.keymap.set
 map("n", "<space><space>x", "<cmd>source %<CR>")
@@ -49,6 +51,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
+})
+
+
+-- OTHER CONFIGURATIONS
+-- Disable errors from lsp-config being drawn
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = false,
+  underline = false,
+  float = {
+    show = true,
+  },
+  update_in_insert = true,
+  severity_sort = true,
 })
 
 -- EXPERIMENTS

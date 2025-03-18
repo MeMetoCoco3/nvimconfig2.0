@@ -16,7 +16,7 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Added autocompletion.
 - Added Dashboard.
 - Added Notify for search bar.
-- Errors are shown with lsp-lines.
+- Errors are shown with lsp-lines, disable that erros ALSO show with lsp-config.
 
 #### Thinking of
 -  Vim-OrgMode
