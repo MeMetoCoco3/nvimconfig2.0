@@ -15,4 +15,8 @@ return {
       require("mini.icons").setup({ style = "glyph" })
     end
   },
+  {
+    "echasnovski/mini.indentscope",
+    version = false,
+  },
 }

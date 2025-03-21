@@ -19,7 +19,9 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Errors are shown with lsp-lines, disable that erros ALSO show with lsp-config.
 - Added todo comments.
 - Disable arrows.
-
+- Added WhichKey.
+- Added num.colorizer.
+- Added mini.indentscope.
 
 
 #### Thinking of

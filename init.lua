@@ -8,17 +8,16 @@ set.relativenumber = true
 set.clipboard = "unnamedplus"
 
 
-
-
 -- KEYMAPS
 local map = vim.keymap.set
-map("n", "<space><space>x", "<cmd>source %<CR>")
-map("n", "<space>x", ":.lua<CR>")
-map("v", "<space>x", ":lua<CR>")
-map("n", "-", ":e .<CR>")
-map('n', 'grn', vim.lsp.buf.rename)
-map('n', 'gra', vim.lsp.buf.code_action)
-map('n', 'grr', vim.lsp.buf.references)
+
+map("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Runs file." })
+map("n", "<space>x", ":.lua<CR>", { desc = "Runs line." })
+map("v", "<space>x", ":lua<CR>", { desc = "Runs lines." })
+map("n", "-", ":e .<CR>", { desc = "Open Oil." })
+map('n', 'grn', vim.lsp.buf.rename, { desc = "Rename." })
+map('n', 'gra', vim.lsp.buf.code_action, { desc = "." })
+map('n', 'grr', vim.lsp.buf.references, { desc = "References." })
 map(
   "n",
   "<space>rl",
@@ -51,10 +50,8 @@ map("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 
+map("n", "<space>ng", ":Neogit<CR>", { desc = "Opens Neogit." })
 
-
--- KEYMAPS
---vim.api.nvim_set_keymap()
 map("n", "<Up>", "<Nop>", { noremap = true, silent = true })
 map("n", "<Down>", "<Nop>", { noremap = true, silent = true })
 map("n", "<Left>", "<Nop>", { noremap = true, silent = true })
@@ -80,6 +77,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.diagnostic.config({
   virtual_text = false,
 })
+
+vim.opt.termguicolors = true
 
 -- EXPERIMENTS
 -- Source next line to see TreeShitter capabilities

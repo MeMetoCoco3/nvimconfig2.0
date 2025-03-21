@@ -4,9 +4,9 @@ return {
     config = function()
       require("lualine").setup {
         options = {
-          theme = "cyberdream",
+          theme = "carbonfox",
           component_separators = { left = '', right = '' },
-          section_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
           icons_enabled = true,
         },
         dependencies = { 'nvim-tree/nvim-web-devicons' },
