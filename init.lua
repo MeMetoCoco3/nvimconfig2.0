@@ -42,7 +42,7 @@ map(
   { desc = "Insert Raylib on Golang." }
 )
 map("t", "<esc>", "<c-\\><c-n>", { desc = "Escape terminal mode." })
-map({ "n", "t" }, "<space>t", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
+map({ "n", "t" }, "<space>tt", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
 map("n", "]t", function()
   require("todo-comments").jump_next()
 end, { desc = "Next todo comment" })
@@ -51,6 +51,18 @@ map("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 
+
+
+-- KEYMAPS
+--vim.api.nvim_set_keymap()
+map("n", "<Up>", "<Nop>", { noremap = true, silent = true })
+map("n", "<Down>", "<Nop>", { noremap = true, silent = true })
+map("n", "<Left>", "<Nop>", { noremap = true, silent = true })
+map("n", "<Right>", "<Nop>", { noremap = true, silent = true })
+map("i", "<Up>", "<Nop>", { noremap = true, silent = true })
+map("i", "<Down>", "<Nop>", { noremap = true, silent = true })
+map("i", "<Left>", "<Nop>", { noremap = true, silent = true })
+map("i", "<Right>", "<Nop>", { noremap = true, silent = true })
 
 
 -- AUTOCOMANDS

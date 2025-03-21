@@ -18,6 +18,8 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Added Notify for search bar.
 - Errors are shown with lsp-lines, disable that erros ALSO show with lsp-config.
 - Added todo comments.
+- Disable arrows.
+
 
 
 #### Thinking of
