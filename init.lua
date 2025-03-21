@@ -7,7 +7,6 @@ set.number = true
 set.relativenumber = true
 set.clipboard = "unnamedplus"
 
-
 -- KEYMAPS
 local map = vim.keymap.set
 
@@ -52,6 +51,12 @@ end, { desc = "Previous todo comment" })
 
 map("n", "<space>ng", ":Neogit<CR>", { desc = "Opens Neogit." })
 
+
+map("n", "<space>TT", ":Typr<CR>", { desc = "Open Typing tool." })
+map("n", "<space>TS", ":TyprStats<CR>", { desc = "Open Typr stats." })
+map("n", "<space>ZM", ":ZenMode<CR>", { desc = "Open Typr stats." })
+
+
 map("n", "<Up>", "<Nop>", { noremap = true, silent = true })
 map("n", "<Down>", "<Nop>", { noremap = true, silent = true })
 map("n", "<Left>", "<Nop>", { noremap = true, silent = true })
@@ -61,6 +66,12 @@ map("i", "<Down>", "<Nop>", { noremap = true, silent = true })
 map("i", "<Left>", "<Nop>", { noremap = true, silent = true })
 map("i", "<Right>", "<Nop>", { noremap = true, silent = true })
 
+map("n", "<space>go", function()
+  vim.cmd("cd /home/evildead20/Documents/Projects/Obsidian/Vault69")
+  require("telescope.builtin").find_files {
+    cwd = "/home/evildead20/Documents/Projects/Obsidian/Vault69"
+  }
+end, { desc = "Open Obsidian vault." })
 
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -71,13 +82,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-
 -- OTHER CONFIGURATIONS
 -- Disable errors from lsp-config being drawn
 vim.diagnostic.config({
   virtual_text = false,
 })
 
+-- Used for rendering some icons on markdown.
+vim.cmd(":set conceallevel=1")
+-- Used to tell colorizer that our terminal emulator can render true colors.
 vim.opt.termguicolors = true
 
 -- EXPERIMENTS

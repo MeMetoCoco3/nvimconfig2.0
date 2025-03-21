@@ -1,11 +1,12 @@
-### My own config of NVIM
+# My own config of NVIM
 This is a vanila config of NVIM that Im making for learning porpuses using the TJ videos.
 
-#### What it has.
+## What it has:
 - Some usefull mapping, and commands written in the *init.lua* file.
 - Use of *lazy package manager*.
 - LSP for lua, python and go.
 - LSP for fennel added.
+- LSP for markdown (marksman) added.
 - Treesitter.
 - Status line from *mini.nvim*. UPDATED: Status line from lualine.nvim
 - Cyberdream colorscheme.
@@ -21,8 +22,13 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Disable arrows.
 - Added WhichKey.
 - Added num.colorizer.
-- Added mini.indentscope.
+- Added mini.indentscope and mini.pairs.
+- Added Treesitter-context.
+- Added markdown renderer.
+- Added obsidian folder link.
+- Added obsidian plugin.
+- Added Typr.
+- Added Zenmode.
 
-
-#### Thinking of
+## Thinking of adding:
 -  Vim-OrgMode

@@ -28,6 +28,14 @@ return {
           cwd = vim.fn.stdpath("config")
         }
       end, { desc = "Find nvim config." })
+
+      vim.keymap.set("n", "<space>eo", function()
+        require("telescope.builtin").find_files {
+          cwd = "/home/evildead20/Documents/Projects/Obsidian/Vault69"
+        }
+      end, { desc = "Find obsidian notes." })
+
+
       -- Checks every file related to a plugin
       vim.keymap.set("n", "<space>ep", function()
         require("telescope.builtin").find_files {

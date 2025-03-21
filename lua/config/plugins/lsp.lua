@@ -19,6 +19,10 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 
+      require 'lspconfig'.marksman.setup {
+        capabilities = capabilities,
+      }
+
       require 'lspconfig'.fennel_ls.setup {
         capabilities = capabilities,
       }
