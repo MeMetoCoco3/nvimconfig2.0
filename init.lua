@@ -17,6 +17,7 @@ map("n", "-", ":e .<CR>", { desc = "Open Oil." })
 map('n', 'grn', vim.lsp.buf.rename, { desc = "Rename." })
 map('n', 'gra', vim.lsp.buf.code_action, { desc = "." })
 map('n', 'grr', vim.lsp.buf.references, { desc = "References." })
+map('n', 'gd', vim.lsp.buf.definition, { desc = "Go definition." })
 map(
   "n",
   "<space>rl",
@@ -51,6 +52,8 @@ end, { desc = "Previous todo comment" })
 
 map("n", "<space>ng", ":Neogit<CR>", { desc = "Opens Neogit." })
 
+map("n", "<space>ob", ":ObsidianBacklinks<CR>", { desc = "Shows current note backlinks." })
+map("n", "<space>ot", ":ObsidianTemplate<CR>", { desc = "Opens template menu." })
 
 map("n", "<space>TT", ":Typr<CR>", { desc = "Open Typing tool." })
 map("n", "<space>TS", ":TyprStats<CR>", { desc = "Open Typr stats." })
@@ -81,6 +84,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+--[[
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.textwidth = 100
+    vim.opt_local.wrapmargin = 10
+
+    vim.opt_local.foldcolumn = "10"
+    vim.opt_local.number = false
+    vim.opt_local.numberwidth = 6
+  end
+})
+]]
 
 -- OTHER CONFIGURATIONS
 -- Disable errors from lsp-config being drawn

@@ -32,3 +32,10 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 
 ## Thinking of adding:
 -  Vim-OrgMode
+
+#### Remarks:
+- Config imported on windows: 
+  Had the problem because *telescope-fzf* requires
+  gcc to build the .dll of fzf, so I just used the
+  compiler from Visual Studio to build it using
+  this line
