@@ -18,7 +18,12 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    { "EdenEast/nightfox.nvim", config = function() vim.cmd("colorscheme carbonfox") end, },
+    {
+      "rebelot/kanagawa.nvim",
+      config = function()
+        vim.cmd("colorscheme kanagawa-dragon")
+      end,
+    },
     { import = "config.plugins" },
 
   }

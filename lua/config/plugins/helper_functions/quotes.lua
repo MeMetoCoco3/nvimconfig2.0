@@ -1,4 +1,8 @@
 local quotes = {
+  "I will show you the strength of an average person!",
+  "Let's break for lunch!",
+  "No matter what desperate circumstances you find yourself in, as long as you have good food and good company, you can always keep on going.",
+  "We have nothing but areas for improvement.",
   "I do as I see fit.",
   "I rather have a bag full of 8s than a mind full of 10s.",
   "Freedom is the power to decide what your computer does, and the only way to have this freedom is to know what your computer is doing.",

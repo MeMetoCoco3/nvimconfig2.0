@@ -1,5 +1,6 @@
 require("config.lazy")
 
+
 -- OPTIONS
 local set = vim.opt
 set.shiftwidth = 4
@@ -10,6 +11,8 @@ set.clipboard = "unnamedplus"
 -- KEYMAPS
 local map = vim.keymap.set
 
+
+map("n", "<space>N", "añ<esc>", { desc = "Appends 'ñ'." })
 map("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Runs file." })
 map("n", "<space>x", ":.lua<CR>", { desc = "Runs line." })
 map("v", "<space>x", ":lua<CR>", { desc = "Runs lines." })
@@ -69,7 +72,7 @@ map("i", "<Down>", "<Nop>", { noremap = true, silent = true })
 map("i", "<Left>", "<Nop>", { noremap = true, silent = true })
 map("i", "<Right>", "<Nop>", { noremap = true, silent = true })
 
-map("n", "<space>go", function()
+map("n", "<space>oo", function()
   vim.cmd("cd /home/evildead20/Documents/Projects/Obsidian/Vault69")
   require("telescope.builtin").find_files {
     cwd = "/home/evildead20/Documents/Projects/Obsidian/Vault69"
@@ -113,3 +116,8 @@ vim.opt.termguicolors = true
 -- Source next line to see TreeShitter capabilities
 -- vim.cmd[[hi @function.builtin.lua guifg=yellow]]
 -- vim.cmd[[hi @function.builtin.lua guibg=black]]
+vim.cmd [[
+  " In your init.lua or syntax file
+  syntax match BoldText /\*\*.\{-}\*\*/
+  highlight BoldText gui=bold
+]]
