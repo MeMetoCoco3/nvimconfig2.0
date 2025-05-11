@@ -23,7 +23,12 @@ return {
         capabilities = capabilities,
       }
 
-      require 'lspconfig'.fennel_ls.setup {
+      -- require 'lspconfig'.fennel_ls.setup {
+      --   capabilities = capabilities,
+      -- }
+      --
+
+      require 'lspconfig'.ccls.setup {
         capabilities = capabilities,
       }
 

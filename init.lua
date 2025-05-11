@@ -11,7 +11,6 @@ set.clipboard = "unnamedplus"
 -- KEYMAPS
 local map = vim.keymap.set
 
-
 map("n", "<space>N", "añ<esc>", { desc = "Appends 'ñ'." })
 map("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Runs file." })
 map("n", "<space>x", ":.lua<CR>", { desc = "Runs line." })
@@ -73,11 +72,23 @@ map("i", "<Left>", "<Nop>", { noremap = true, silent = true })
 map("i", "<Right>", "<Nop>", { noremap = true, silent = true })
 
 map("n", "<space>oo", function()
-  vim.cmd("cd /home/evildead20/Documents/Projects/Obsidian/Vault69")
+  vim.cmd("cd ~/obsidian_vault/Vault69")
   require("telescope.builtin").find_files {
-    cwd = "/home/evildead20/Documents/Projects/Obsidian/Vault69"
+    cwd = "~/obsidian_vault/Vault69"
   }
 end, { desc = "Open Obsidian vault." })
+
+map("n", "<space>bm", ":CycleBM<CR>", { desc = "Cycle Black Metal Theme" })
+
+
+vim.diagnostic.config({
+  virtual_text = false
+})
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+
 
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -109,6 +120,7 @@ vim.diagnostic.config({
 
 -- Used for rendering some icons on markdown.
 vim.cmd(":set conceallevel=1")
+vim.cmd(":colorscheme khold")
 -- Used to tell colorizer that our terminal emulator can render true colors.
 vim.opt.termguicolors = true
 
@@ -121,3 +133,14 @@ vim.cmd [[
   syntax match BoldText /\*\*.\{-}\*\*/
   highlight BoldText gui=bold
 ]]
+
+
+
+
+vim.api.nvim_create_user_command("BlackMetalThemes", function()
+  local themes = require("black-metal.themes")
+  print("Available black-metal themes:")
+  for name, _ in pairs(themes) do
+    print("- " .. name)
+  end
+end, {})
