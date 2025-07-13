@@ -3,7 +3,7 @@ require("config.lazy")
 
 -- OPTIONS
 local set = vim.opt
-set.shiftwidth = 4
+set.shiftwidth = 2
 set.number = true
 set.relativenumber = true
 set.clipboard = "unnamedplus"
@@ -11,6 +11,7 @@ set.clipboard = "unnamedplus"
 -- KEYMAPS
 local map = vim.keymap.set
 
+map("n", "<space>vs", ":vsplit<CR>", { desc = "Does virtual split with current buffer." })
 map("n", "<space>N", "añ<esc>", { desc = "Appends 'ñ'." })
 map("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Runs file." })
 map("n", "<space>x", ":.lua<CR>", { desc = "Runs line." })
@@ -78,8 +79,8 @@ map("n", "<space>oo", function()
   }
 end, { desc = "Open Obsidian vault." })
 
-map("n", "<space>bm", ":CycleBM<CR>", { desc = "Cycle Black Metal Theme" })
-
+map("n", "<space>bm", ":CycleBM<CR>", { desc = "Cycle colorscheme" })
+map("n", "<space>bl", ":ToggleTheme<CR>", { desc = "Toggle current colorscheme" })
 
 vim.diagnostic.config({
   virtual_text = false
@@ -120,7 +121,8 @@ vim.diagnostic.config({
 
 -- Used for rendering some icons on markdown.
 vim.cmd(":set conceallevel=1")
-vim.cmd(":colorscheme khold")
+-- vim.cmd(":colorscheme rose-pine")
+
 -- Used to tell colorizer that our terminal emulator can render true colors.
 vim.opt.termguicolors = true
 
@@ -134,13 +136,24 @@ vim.cmd [[
   highlight BoldText gui=bold
 ]]
 
+-- Adds formatting for individual go files (does not change file)
+vim.cmd [[
+  autocmd FileType go setlocal tabstop=2 shiftwidth=2 noexpandtab
+]]
+
+vim.filetype.add({
+  extension = {
+    odin = 'odin',
+  },
+})
+
+
+vim.cmd [[
+  autocmd FileType odin setlocal tabstop=2 shiftwidth=2 noexpandtab
+]]
 
 
 
-vim.api.nvim_create_user_command("BlackMetalThemes", function()
-  local themes = require("black-metal.themes")
-  print("Available black-metal themes:")
-  for name, _ in pairs(themes) do
-    print("- " .. name)
-  end
-end, {})
+
+
+vim.cmd(":colorscheme fluoromachine")

@@ -9,6 +9,7 @@ local quotes = {
   "The world is full of problems waiting to be solved.",
   "We live in an age of wonders.",
   "What I cannot create, I do not understand.",
+  "If you keep challenging your assumptions, then your understanding will quickly improve and things will over time become a lot easier.",
   "A journey of a thousand miles starts with a single step.",
   "In life We play with a set of cards, but together We have the whole deck.",
   "The difference between science and screwing around is writing it down",

@@ -1,9 +1,9 @@
 local themes = {
-  "windir",
-  "darkthrone",
-  "emperor",
   "khold",
-  "immortal",
+  "windir",
+  "vague",
+  "fluoromachine",
+  "zenbones"
 }
 
 local current = 0
@@ -20,5 +20,14 @@ local function cycle_black_metal_theme()
   vim.notify("Black Metal theme: " .. theme_name, vim.log.levels.INFO)
 end
 
+vim.api.nvim_create_user_command('ToggleTheme', function()
+  local opt = vim.opt
+  local bg = opt.background:get()
+  if bg == "dark" then
+    vim.cmd("set background=light")
+  else
+    vim.cmd("set background=dark")
+  end
+end, {})
 
 vim.api.nvim_create_user_command("CycleBM", cycle_black_metal_theme, {})

@@ -40,10 +40,12 @@ local function get_logo()
     ]]
 end
 
+
+
 local quotes = require("config.plugins.helper_functions.quotes")
 
---vim.g.dashboard_disable_statusline = 1
---vim.g.dashboard_disable_at_vimenter = 0
+vim.g.dashboard_disable_statusline = 1
+vim.g.dashboard_disable_at_vimenter = 0
 
 return {
   "glepnir/dashboard-nvim",

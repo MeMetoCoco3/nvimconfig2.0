@@ -39,6 +39,13 @@ return {
       require 'lspconfig'.lua_ls.setup {
         capabilities = capabilities,
       }
+      require('lspconfig').ols.setup({
+        -- Optional: Add any specific configuration here
+        cmd = { 'ols' }, -- Make sure 'ols' is in your PATH, or provide full path
+        filetypes = { 'odin' },
+        root_dir = require('lspconfig').util.root_pattern('ols.json', '.git'),
+        single_file_support = true,
+      })
 
       require 'lspconfig'.gopls.setup {
         capabilities = capabilities,
