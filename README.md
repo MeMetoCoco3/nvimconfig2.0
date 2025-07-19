@@ -31,6 +31,7 @@ This is a vanila config of NVIM that Im making for learning porpuses using the T
 - Added Zenmode.
 - Added BlackMetalNvim colorscheme + Swap keymaps for different colorschemes and light mode.
 - Now I can hover over errors to get info.
+- NeoTree.
 
 ## Thinking of adding:
 -  Vim-OrgMode
