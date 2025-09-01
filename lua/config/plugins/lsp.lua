@@ -15,39 +15,51 @@ return {
         },
       },
     },
+
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+      local lspconfig = require('lspconfig')
 
-      require 'lspconfig'.marksman.setup {
+      lspconfig.marksman.setup {
         capabilities = capabilities,
       }
 
-      -- require 'lspconfig'.fennel_ls.setup {
-      --   capabilities = capabilities,
-      -- }
-      --
-
-      require 'lspconfig'.ccls.setup {
+      lspconfig.nushell.setup({
         capabilities = capabilities,
-      }
+        cmd = { 'nu', '--lsp' },
+        filetypes = { 'nu' },
+        root_dir = function(fname)
+          return vim.fs.root(fname, { ".git" }) or vim.fs.dirname(fname)
+        end,
 
-      require 'lspconfig'.basedpyright.setup {
-        capabilities = capabilities,
-      }
-
-      require 'lspconfig'.lua_ls.setup {
-        capabilities = capabilities,
-      }
-      require('lspconfig').ols.setup({
-        -- Optional: Add any specific configuration here
-        cmd = { 'ols' }, -- Make sure 'ols' is in your PATH, or provide full path
-        filetypes = { 'odin' },
-        root_dir = require('lspconfig').util.root_pattern('ols.json', '.git'),
         single_file_support = true,
       })
 
-      require 'lspconfig'.gopls.setup {
+      lspconfig.ccls.setup {
+        capabilities = capabilities,
+      }
+
+      lspconfig.basedpyright.setup {
+        capabilities = capabilities,
+      }
+
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+      }
+
+      lspconfig.ols.setup({
+        -- Optional: Add any specific configuration here
+        cmd = { 'ols' }, -- Make sure 'ols' is in your PATH, or provide full path
+        filetypes = { 'odin' },
+        root_dir = function(fname)
+          return require('lspconfig').util.root_pattern('ols.json', '.git')(fname)
+              or require('lspconfig').vim.fs.dirname(fname)
+        end,
+        single_file_support = true,
+      })
+
+      lspconfig.gopls.setup {
         capabilities = capabilities,
         settings = {
           gopls = {

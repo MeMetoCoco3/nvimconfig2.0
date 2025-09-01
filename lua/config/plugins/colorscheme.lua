@@ -1,5 +1,24 @@
 return {
   {
+    "ficcdaf/ashen.nvim",
+    -- optional but recommended,
+    -- pin to the latest stable release:
+    tag = "*",
+    lazy = false,
+    priority = 1000,
+    -- configuration is optional!
+    opts = {
+      -- your settings here
+    },
+  },
+
+  {
+    "zootedb0t/citruszest.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+
+  {
     "zenbones-theme/zenbones.nvim",
     -- Optionally install Lush. Allows for more configuration or extending the colorscheme
     -- If you don't want to install lush, make sure to set g:zenbones_compat = 1

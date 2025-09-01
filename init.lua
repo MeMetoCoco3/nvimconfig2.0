@@ -11,6 +11,7 @@ set.clipboard = "unnamedplus"
 -- KEYMAPS
 local map = vim.keymap.set
 
+map("i", "<C-[>", "<Esc>")
 map("n", "<space>vs", ":vsplit<CR>", { desc = "Does virtual split with current buffer." })
 map("n", "<space>N", "añ<esc>", { desc = "Appends 'ñ'." })
 map("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Runs file." })
@@ -21,6 +22,10 @@ map('n', 'grn', vim.lsp.buf.rename, { desc = "Rename." })
 map('n', 'gra', vim.lsp.buf.code_action, { desc = "." })
 map('n', 'grr', vim.lsp.buf.references, { desc = "References." })
 map('n', 'gd', vim.lsp.buf.definition, { desc = "Go definition." })
+
+map('n', '<space>tt', ':ToggleTerm<CR>', { desc = "Toggle Toggletherm." })
+map('t', '<space>tt', [[<C-\><C-n><cmd>ToggleTerm<cr>]], { desc = "Toggle terminal" })
+
 map(
   "n",
   "<space>rl",
@@ -43,8 +48,18 @@ map(
     ]],
   { desc = "Insert Raylib on Golang." }
 )
-map("t", "<esc>", "<c-\\><c-n>", { desc = "Escape terminal mode." })
-map({ "n", "t" }, "<space>tt", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
+
+vim.api.nvim_create_augroup("slimv", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = "slimv",
+  pattern = { "lisp", "scheme", "clojure" },
+  callback = function()
+    vim.opt_local.lisp = true
+  end,
+})
+--
+-- map("t", "<esc>", "<c-\\><c-n>", { desc = "Escape terminal mode." })
+-- map({ "n", "t" }, "<space>tt", ":Floaterminal<CR>", { desc = "Toggle floating terminal." })
 map("n", "]t", function()
   require("todo-comments").jump_next()
 end, { desc = "Next todo comment" })
@@ -81,6 +96,9 @@ end, { desc = "Open Obsidian vault." })
 
 map("n", "<space>bm", ":CycleBM<CR>", { desc = "Cycle colorscheme" })
 map("n", "<space>bl", ":ToggleTheme<CR>", { desc = "Toggle current colorscheme" })
+
+map("n", "<space>e", "<Cmd>Neotree reveal<CR>", { desc = "Open Neotree" })
+
 
 vim.diagnostic.config({
   virtual_text = false
@@ -121,7 +139,7 @@ vim.diagnostic.config({
 
 -- Used for rendering some icons on markdown.
 vim.cmd(":set conceallevel=1")
--- vim.cmd(":colorscheme rose-pine")
+vim.cmd(":colorscheme ashen")
 
 -- Used to tell colorizer that our terminal emulator can render true colors.
 vim.opt.termguicolors = true

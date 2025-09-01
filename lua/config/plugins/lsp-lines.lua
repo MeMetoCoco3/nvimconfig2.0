@@ -10,6 +10,7 @@ return {
         require("lsp_lines").toggle,
         { desc = "Toggle lsp_lines" }
       )
+      vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
     end,
   }
 }

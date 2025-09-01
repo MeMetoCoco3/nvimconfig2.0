@@ -1,4 +1,6 @@
 local themes = {
+  "ashen",
+  "gothic-cyberpunk",
   "khold",
   "windir",
   "vague",
