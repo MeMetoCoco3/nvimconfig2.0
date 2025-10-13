@@ -3,10 +3,23 @@ require("config.lazy")
 
 -- OPTIONS
 local set = vim.opt
-set.shiftwidth = 2
+set.shiftwidth = 4
 set.number = true
 set.relativenumber = true
 set.clipboard = "unnamedplus"
+--
+-- set.clipboard = {
+--   name = 'wl-clipboard',
+--   copy = {
+--     ['+'] = 'wl-copy',
+--     ['*'] = 'wl-copy',
+--   },
+--   paste = {
+--     ['+'] = 'wl-paste',
+--     ['*'] = 'wl-paste',
+--   },
+--   cache_enabled = 1,
+-- }
 
 -- KEYMAPS
 local map = vim.keymap.set
@@ -73,9 +86,9 @@ map("n", "<space>ng", ":Neogit<CR>", { desc = "Opens Neogit." })
 map("n", "<space>ob", ":ObsidianBacklinks<CR>", { desc = "Shows current note backlinks." })
 map("n", "<space>ot", ":ObsidianTemplate<CR>", { desc = "Opens template menu." })
 
-map("n", "<space>TT", ":Typr<CR>", { desc = "Open Typing tool." })
-map("n", "<space>TS", ":TyprStats<CR>", { desc = "Open Typr stats." })
-map("n", "<space>ZM", ":ZenMode<CR>", { desc = "Open Typr stats." })
+-- map("n", "<space>TT", ":Typr<CR>", { desc = "Open Typing tool." })
+-- map("n", "<space>TS", ":TyprStats<CR>", { desc = "Open Typr stats." })
+-- map("n", "<space>ZM", ":ZenMode<CR>", { desc = "Open Typr stats." })
 
 
 map("n", "<Up>", "<Nop>", { noremap = true, silent = true })
@@ -88,27 +101,14 @@ map("i", "<Left>", "<Nop>", { noremap = true, silent = true })
 map("i", "<Right>", "<Nop>", { noremap = true, silent = true })
 
 map("n", "<space>oo", function()
-  vim.cmd("cd ~/obsidian_vault/Vault69")
+  vim.cmd("cd ~/Work/Obsidian_Vault/Vault69")
   require("telescope.builtin").find_files {
-    cwd = "~/obsidian_vault/Vault69"
+    cwd = "~/Work/Obsidian_Vault/Vault69"
   }
 end, { desc = "Open Obsidian vault." })
 
 map("n", "<space>bm", ":CycleBM<CR>", { desc = "Cycle colorscheme" })
 map("n", "<space>bl", ":ToggleTheme<CR>", { desc = "Toggle current colorscheme" })
-
-map("n", "<space>e", "<Cmd>Neotree reveal<CR>", { desc = "Open Neotree" })
-
-
-vim.diagnostic.config({
-  virtual_text = false
-})
--- Show line diagnostics automatically in hover window
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-
-
-
 -- AUTOCOMANDS
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight text that is copied.",
@@ -117,29 +117,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
---[[
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.textwidth = 100
-    vim.opt_local.wrapmargin = 10
-
-    vim.opt_local.foldcolumn = "10"
-    vim.opt_local.number = false
-    vim.opt_local.numberwidth = 6
-  end
-})
-]]
-
--- OTHER CONFIGURATIONS
--- Disable errors from lsp-config being drawn
-vim.diagnostic.config({
-  virtual_text = false,
-})
 
 -- Used for rendering some icons on markdown.
 vim.cmd(":set conceallevel=1")
-vim.cmd(":colorscheme ashen")
 
 -- Used to tell colorizer that our terminal emulator can render true colors.
 vim.opt.termguicolors = true
@@ -167,11 +147,9 @@ vim.filetype.add({
 
 
 vim.cmd [[
-  autocmd FileType odin setlocal tabstop=2 shiftwidth=2 noexpandtab
+  autocmd FileType odin setlocal tabstop=4 shiftwidth=4 noexpandtab
 ]]
 
+vim.cmd(":colorscheme nes")
 
-
-
-
-vim.cmd(":colorscheme fluoromachine")
+vim.diagnostic.config({virtual_text = false})

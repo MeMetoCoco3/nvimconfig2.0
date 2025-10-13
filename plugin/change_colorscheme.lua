@@ -1,11 +1,8 @@
 local themes = {
-  "ashen",
-  "gothic-cyberpunk",
-  "khold",
-  "windir",
-  "vague",
+  "handmade-hero",
   "fluoromachine",
-  "zenbones"
+  "zenbones",
+  "nes"
 }
 
 local current = 0
@@ -19,7 +16,7 @@ local function cycle_black_metal_theme()
   local theme_name = themes[current]
   local command = ":colorscheme " .. theme_name
   vim.cmd(command)
-  vim.notify("Black Metal theme: " .. theme_name, vim.log.levels.INFO)
+  vim.notify("Colorscheme: " .. theme_name, vim.log.levels.INFO)
 end
 
 vim.api.nvim_create_user_command('ToggleTheme', function()
