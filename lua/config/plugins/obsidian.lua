@@ -12,7 +12,7 @@ return { {
     workspaces = {
       {
         name = "vault69",
-        path = "~/Work/obsidian/ed0/",
+        path = "~/Obsidian/ed0bsidian/",
       },
     },
     completion = {

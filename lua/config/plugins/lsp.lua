@@ -53,23 +53,6 @@ return {
         },
       }
 
-
-      --
-      -- lspconfig.ccls.setup {
-      --   cmd = { 'ccls', '--lsp' },
-      --   capabilities = capabilities,
-      --   filetypes = { "c", "h"},
-      -- }
-      --
-      -- lspconfig.basedpyright.setup {
-      --   capabilities = capabilities,
-      -- }
-      --
-      -- lspconfig.lua_ls.setup {
-      --   capabilities = capabilities,
-      -- }
-      --
-
       lspconfig.ols.setup({
         capabilities = capabilities,
         cmd = { "ols" },
