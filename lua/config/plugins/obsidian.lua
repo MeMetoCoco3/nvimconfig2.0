@@ -11,8 +11,8 @@ return { {
     disable_frontmatter = true,
     workspaces = {
       {
-        name = "vault69",
-        path = "~/Obsidian/ed0bsidian/",
+        name = "ed0bsidian",
+        path = "~/work/ed0bsidian/",
       },
     },
     completion = {

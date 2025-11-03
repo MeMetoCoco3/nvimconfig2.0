@@ -150,6 +150,6 @@ vim.cmd [[
   autocmd FileType odin setlocal tabstop=4 shiftwidth=4 noexpandtab
 ]]
 
-vim.cmd(":colorscheme nes")
+vim.cmd(":colorscheme stark-contrast")
 
 vim.diagnostic.config({virtual_text = false})
