@@ -150,6 +150,30 @@ vim.cmd [[
   autocmd FileType odin setlocal tabstop=4 shiftwidth=4 noexpandtab
 ]]
 
-vim.cmd(":colorscheme stark-contrast")
 
 vim.diagnostic.config({virtual_text = false})
+
+
+
+require("nvim-treesitter.parsers").get_parser_configs().glsl = {
+  install_info = {
+    files = {},
+  },
+  used_by = { "glsl"},
+}
+
+vim.filetype.add({
+  extension = {
+    glsl = "glsl",
+    vs = "glsl",
+    fs = "glsl",
+    gs = "glsl",
+  },
+})
+
+vim.treesitter.language.register("c", "glsl")
+
+
+vim.cmd(":colorscheme boo")
+
+
